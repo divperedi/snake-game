@@ -12,7 +12,7 @@ let food = generateFood();
 let highScore = 0;
 let direction = 'right';
 let gameInterval;
-let gameSpeedDelay = 200;
+let gameSpeedDelay = 300;
 let gameStarted = false;
 
 function draw() {
@@ -135,13 +135,13 @@ document.addEventListener('keydown', handleKeyPress);
 
 
 function increaseSpeed() {
-    if (gameSpeedDelay > 150) {
+    if (gameSpeedDelay > 200) {
         gameSpeedDelay -= 5;
-    } else if (gameSpeedDelay > 100) {
+    } else if (gameSpeedDelay > 150) {
         gameSpeedDelay -= 3;
-    } else if (gameSpeedDelay > 50) {
+    } else if (gameSpeedDelay > 100) {
         gameSpeedDelay -= 2;
-    } else if (gameSpeedDelay > 25) {
+    } else if (gameSpeedDelay > 50) {
         gameSpeedDelay -= 1;
     }
 }
@@ -166,7 +166,7 @@ function resetGame() {
     snake = [{ x: 10, y: 10 }];
     food = generateFood();
     direction = 'right';
-    gameSpeedDelay = 200;
+    gameSpeedDelay = 300;
     updateScore();
 }
 
