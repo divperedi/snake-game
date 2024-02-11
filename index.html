@@ -1,28 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <title>Snake Game</title>
 </head>
+
 <body>
-    <section>
-        <article class="scores">
-            <h1 id="score">000</h1>
-            <h1 id="highScore">000</h1>
-        </article>
-        <article class="game-border-one">
-            <article class="game-border-two">
-                <article class="game-border-three">
-                    <article class="game-border-four">
-                        <article id="game-board"></article>
-                </article>
+    <main class="main">
+        <div class="main__form-wrapper" id="formWrapper">
+            <form class="main__form" action="#" method="post" id="formLogin">
+                <span class="main__form-message" id="loginMsg"></span>
+                <div class="main__form-column">
+                    <label for="loginUsername">Username:</label>
+                    <input class="main__form-input" type="text" id="loginUsername" />
+                </div>
+                <div class="main__form-column">
+                    <label for="loginPassword">Password:</label>
+                    <input class="main__form-input" type="password" id="loginPassword" />
+                </div>
+                <div class="main__form-column">
+                    <label for="question">Please confirm that you are ready to go back to 90s: </label>
+                    <input class="main__form-checkbox" id="question" type="checkbox">
+                </div>
+                <button class="main__form-button" id="play">Play Game</button>
+                <button class="main__form-button" id="loginToggle">Im new to this game!</button>
+            </form>
+
+            <form class="main__form main__form--hidden" action="#" method="post" id="formRegistration">
+                <span class="main__form-message" id="registrationMsg"></span>
+                <div class="main__form-column">
+                    <label for="registerUsername">Username:</label>
+                    <input class="main__form-input" type="text" id="registerUsername" />
+                </div>
+                <div class="main__form-column">
+                    <label for="registerPassword">Password:</label>
+                    <input class="main__form-input" type="password" id="registerPassword" />
+                </div>
+                <div class="main__form-column">
+                    <label for="registerPasswordAgain">Password again:</label>
+                    <input class="main__form-input" type="password" id="registerPasswordAgain" />
+                </div>
+                <button class="main__form-button" id="create">Create account</button>
+                <button class="main__form-button" id="registrationToggle">I have played this before!</button>
+            </form>
+        </div>
+        <section id="gameArea">
+            <article class="scores">
+                <h1 id="score">000</h1>
+                <h1 id="highScore">000</h1>
             </article>
-        </article>
-    </section>
-    <h1 id="instruction-text">Press spacebar to start a game</h1>
-    <img id="logo" src="assets/snake-logo.png" alt="snake-logo">
-    <script src="scripts/script.js"></script>
+            <article class="game-border-one">
+                <article class="game-border-two">
+                    <article class="game-border-three">
+                        <article class="game-border-four">
+                            <article id="game-board"></article>
+                        </article>
+                    </article>
+                </article>
+        </section>
+        <h1 id="instruction-text">Press spacebar to start a game</h1>
+        <img id="logo" src="assets/snake-logo.png" alt="snake-logo">
+    </main>
+    <script type="module" src="scripts/users.js"></script>
+    <script type="module" src="scripts/script.js"></script>
 </body>
+
 </html>
