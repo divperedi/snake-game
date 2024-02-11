@@ -1,5 +1,7 @@
 'use strict';
 
+import { users } from './users.js';
+
 window.addEventListener('load', () => {
     document.querySelector('#create').addEventListener('click', registerUser);
     document.querySelector('#play').addEventListener('click', validateLogin);
@@ -9,15 +11,13 @@ window.addEventListener('load', () => {
     instructionText.style.display = 'none';
 });
 
-import { users } from './users.js';
-
 const board = document.querySelector('#game-board');
 const instructionText = document.querySelector('#instruction-text');
 const logo = document.querySelector('#logo');
 const score = document.querySelector('#score');
 const highScoreText = document.querySelector('#highScore');
 let currentUser = {};
-// const loginMsg = document.querySelector('#loginMsg');
+const loginMsg = document.querySelector('#loginMsg');
 
 const gridSize = 20;
 let snake = [{ x: 10, y: 10 }];
@@ -87,7 +87,7 @@ function registerUser(event) {
         } else {
             addUser(username, password);
 
-            document.querySelector('#loginMsg').textContent = 'User created!';
+            loginMsg.textContent = 'User created!';
             toggleForms();
         }
 
@@ -101,11 +101,10 @@ function toggleFormDivs() {
 function validateLogin(event) {
     event.preventDefault();
     formWrapper.style.display = 'none';
-    formRegistration.style.display = 'none';
+    // formRegistration.style.display = 'none';
     gameArea.style.display = 'block';
     logo.style.display = 'block';
     instructionText.style.display = 'block';
-    // startGame();
     
     const userName = document.querySelector('#loginUsername').value; 
     const passWord = document.querySelector('#loginPassword').value; 
@@ -144,7 +143,7 @@ function validateLogin(event) {
 
 
     } catch (error) {
-        document.querySelector('#loginMsg').textContent = error.msg; 
+       loginMsg.textContent = error.msg; 
         return false; 
     }
 }
