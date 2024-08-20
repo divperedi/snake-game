@@ -100,13 +100,7 @@ function toggleFormDivs() {
 
 function validateLogin(event) {
     event.preventDefault();
-    formWrapper.style.display = 'none';
-    formRegistration.style.display = 'none';
-    gameArea.style.display = 'block';
-    logo.style.display = 'block';
-    instructionText.style.display = 'block';
-    // startGame();
-    
+
     const userName = document.querySelector('#loginUsername').value; 
     const passWord = document.querySelector('#loginPassword').value; 
     const question = document.querySelector('#question').checked; 
@@ -138,10 +132,17 @@ function validateLogin(event) {
                 'msg': 'Invalid username or password!' 
             };
         }
+        
+        // Login is successful, so hide forms and show game area
         currentUser = user;
-        startGame();
-        return true; 
+        formWrapper.style.display = 'none';
+        formRegistration.style.display = 'none';
+        gameArea.style.display = 'block';
+        logo.style.display = 'block';
+        instructionText.style.display = 'block';
 
+        startGame();
+        return true;
 
     } catch (error) {
         document.querySelector('#loginMsg').textContent = error.msg; 
